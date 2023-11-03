@@ -48,6 +48,8 @@ class MainActivity : ComponentActivity() {
 //                dotaText()
                 description()
                 video()
+                review()
+                digits()
 
             }
             Column(
@@ -85,7 +87,7 @@ fun dotaPrew(){
 private fun dotaLogo() {
     Card(
         modifier = Modifier
-            .size(width = 132.dp, height = 139.dp)
+            .size(width = 132.dp, height = 138.dp)
             .padding(22.dp)
     ){
         Box(
@@ -163,11 +165,15 @@ private fun description() {
 @Composable
 private fun video() {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(start=24.dp,top=18.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, top = 18.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Box(
-            modifier = Modifier.size(width = 240.dp, height = 135.dp).padding(end = 15.dp),
+            modifier = Modifier
+                .size(width = 240.dp, height = 135.dp)
+                .padding(end = 15.dp),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -203,4 +209,55 @@ private fun video() {
 
     }
 }
+@Preview
+@Composable
+private fun review() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, top = 20.dp),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Box(
+            modifier = Modifier.size(height = 19.dp, width = 137.dp),
+            contentAlignment = Alignment.BottomCenter
+        ){
+            Text(
+                text = "Review & Ratings",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 19.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xB2EEF2FB),
 
+                    )
+            )
+        }
+    }
+}
+@Preview
+@Composable
+private fun digits() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, top = 12.dp),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Box(
+            modifier = Modifier.size(height = 58.dp, width = 69.dp),
+            contentAlignment = Alignment.BottomCenter
+        ){
+            Text(
+                text = "4.9",
+                style = TextStyle(
+                    fontSize = 48.sp,
+                    lineHeight = 19.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xB2EEF2FB),
+
+                    )
+            )
+        }
+    }
+}
