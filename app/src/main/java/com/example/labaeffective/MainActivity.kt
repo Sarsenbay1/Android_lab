@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -48,7 +49,10 @@ class MainActivity : ComponentActivity() {
 //                dotaText()
                 description()
                 video()
-
+                review()
+//                digits()
+                digitsAndStars()
+                humans()
             }
             Column(
                 modifier = Modifier.fillMaxHeight(0.45f),
@@ -85,7 +89,7 @@ fun dotaPrew(){
 private fun dotaLogo() {
     Card(
         modifier = Modifier
-            .size(width = 132.dp, height = 139.dp)
+            .size(width = 132.dp, height = 138.dp)
             .padding(22.dp)
     ){
         Box(
@@ -163,11 +167,15 @@ private fun description() {
 @Composable
 private fun video() {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(start=24.dp,top=18.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, top = 18.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Box(
-            modifier = Modifier.size(width = 240.dp, height = 135.dp).padding(end = 15.dp),
+            modifier = Modifier
+                .size(width = 240.dp, height = 135.dp)
+                .padding(end = 15.dp),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -203,42 +211,101 @@ private fun video() {
 
     }
 }
-
-//@Preview
-//@Composable
-//private fun video(){
-//    Row(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(start = 24.dp, top = 18.dp, end = 0.dp),
-//
-//        ){
-//        Row(modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(start = 0.dp, top = 0.dp, end = 5.dp),
-//        ){
-//            Image(painter = painterResource(id = R.drawable.video1),
-//                contentDescription = "image",
-//                contentScale = ContentScale.Crop,
-//                modifier = Modifier.size(height = 135.dp, width = 240.dp) )
-//
-//        }
-//        Row(modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(start = 0.dp, top = 0.dp, end = 0.dp),
-//     ){
-//            Image(painter = painterResource(id = R.drawable.video2),
-//                contentDescription = "image",
-//                contentScale = ContentScale.Crop,
-//                modifier = Modifier.size(height = 138.dp, width = 90.dp))
-//        }
-//
-//
-//
-//    }
-//}
 @Preview
 @Composable
-private fun review(){
-    Row(){}
+private fun review() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, top = 20.dp),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Box(
+            modifier = Modifier.size(height = 19.dp, width = 137.dp),
+            contentAlignment = Alignment.BottomCenter
+        ){
+            Text(
+                text = "Review & Ratings",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 19.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xB2EEF2FB),
+
+                    )
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun digitsAndStars(){
+    Row(modifier = Modifier
+        .size(width = 195.dp, height = 58.dp)
+        .padding(start = 24.dp)) {
+        Text(
+            text = "4.9",
+            style = TextStyle(
+                fontSize = 48.sp,
+// fontFamily = FontFamily(Font(R.font.sk-modernist)),
+                fontWeight = FontWeight(700),
+                color = Color(0xFFFFFFFF),
+            )
+        )
+        Column(modifier = Modifier
+            .fillMaxHeight()
+            .padding(start = 16.dp),
+            verticalArrangement = Arrangement.Center) {
+
+            Image(
+                painter = painterResource(id = R.drawable.stars),
+                contentDescription = "stars",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.size(width = 76.dp, height = 14.dp)
+            )
+
+            Text(
+                text = "70M Reviews",
+                style = TextStyle(
+                    fontSize = 12.sp,
+// fontFamily = FontFamily(Font(R.font.sk-modernist)),
+                    fontWeight = FontWeight(400),
+                    color = Color(0xFFA8ADB7),
+                    letterSpacing = 0.5.sp,
+                )
+            )
+        }
+    }
+}
+@Preview
+@Composable
+private fun humans(){
+    Column (modifier = Modifier
+        .fillMaxHeight()
+        .padding(start = 24.dp),
+    verticalArrangement = Arrangement.Center){
+        Box(            modifier = Modifier.padding(end = 16.dp)
+        ){
+            Image(painter = painterResource(id = R.drawable.ellipse_9),
+                contentDescription = "people",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.size(45.dp)
+            )
+            Text(
+                modifier = Modifier.padding(start = 56.dp),
+                text = "Auguste Conte",
+                style = TextStyle(
+                    fontSize = 16.sp,
+//                    fontFamily = FontFamily(Font(R.font.sk-modernist)),
+                    fontWeight = FontWeight(400),
+                    color = Color(0xFFFFFFFF),
+                    letterSpacing = 0.5.sp,
+                )
+            )
+        }
+
+
+
+    }
 }
