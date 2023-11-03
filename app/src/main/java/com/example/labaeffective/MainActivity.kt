@@ -248,7 +248,6 @@ private fun digitsAndStars(){
             text = "4.9",
             style = TextStyle(
                 fontSize = 48.sp,
-// fontFamily = FontFamily(Font(R.font.sk-modernist)),
                 fontWeight = FontWeight(700),
                 color = Color(0xFFFFFFFF),
             )
