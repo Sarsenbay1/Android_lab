@@ -56,7 +56,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-/** Картинка вверху экрана **/
 @Preview
 @Composable
 fun DotaPrew(){
