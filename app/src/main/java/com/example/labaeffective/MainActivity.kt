@@ -1,8 +1,5 @@
 package com.example.labaeffective
 
-import android.graphics.Picture
-import android.graphics.fonts.Font
-import android.graphics.fonts.FontFamily
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,15 +15,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -34,7 +28,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.labaeffective.ui.theme.LabaeffectiveTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,20 +38,18 @@ class MainActivity : ComponentActivity() {
                     .background(colorResource(R.color.backColor))
                     .fillMaxSize()
             ) {
-                dotaPrew()
-//                dotaText()
-                description()
-                video()
-                review()
-//                digits()
-                digitsAndStars()
-                humans()
+                DotaPrew()
+                Description()
+                Video()
+                Review()
+                DigitsAndStars()
+                Humans()
             }
             Column(
                 modifier = Modifier.fillMaxHeight(0.45f),
                 verticalArrangement = Arrangement.Bottom
             ) {
-                dotaLogo()
+                DotaLogo()
             }
 
         }
@@ -68,7 +59,7 @@ class MainActivity : ComponentActivity() {
 /** Картинка вверху экрана **/
 @Preview
 @Composable
-fun dotaPrew(){
+fun DotaPrew(){
     Box(
         modifier = Modifier
             .fillMaxHeight(0.35f)
@@ -86,7 +77,7 @@ fun dotaPrew(){
 /** Лого доты **/
 @Preview
 @Composable
-private fun dotaLogo() {
+private fun DotaLogo() {
     Card(
         modifier = Modifier
             .size(width = 132.dp, height = 138.dp)
@@ -107,40 +98,10 @@ private fun dotaLogo() {
         }
     }
 }
-@Preview
-@Composable
-private fun dotaText() {
-    Card(
-        modifier = Modifier
-            .size(width = 120.dp, height = 80.dp)
-            .padding(22.dp, 50.dp, 100.dp)
-    ){
-        Box(
-            modifier = Modifier
-                .background(colorResource(R.color.backColor))
-                .size(width = 124.dp, height = 200.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(text = "DoTA 2",
-                fontSize = 20.sp,
-                lineHeight = 26.sp,
-                fontWeight = FontWeight(700),
-                color = Color(0xB2EEF2FB),
-            )
-//                        color: #FFF;
-//            font-family: Sk-Modernist;
-//            font-size: 20px;
-//            font-style: normal;
-//            font-weight: 700;
-//            line-height: 26px; /* 130% */
-//            letter-spacing: 0.5px;)
-        }
-    }
-}
 
 @Preview
 @Composable
-private fun description() {
+private fun Description() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -165,7 +126,7 @@ private fun description() {
     }
 }
 @Composable
-private fun video() {
+private fun Video() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -213,7 +174,7 @@ private fun video() {
 }
 @Preview
 @Composable
-private fun review() {
+private fun Review() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -240,7 +201,7 @@ private fun review() {
 
 @Preview
 @Composable
-private fun digitsAndStars(){
+private fun DigitsAndStars(){
     Row(modifier = Modifier
         .size(width = 195.dp, height = 58.dp)
         .padding(start = 24.dp)) {
@@ -268,7 +229,6 @@ private fun digitsAndStars(){
                 text = "70M Reviews",
                 style = TextStyle(
                     fontSize = 12.sp,
-// fontFamily = FontFamily(Font(R.font.sk-modernist)),
                     fontWeight = FontWeight(400),
                     color = Color(0xFFA8ADB7),
                     letterSpacing = 0.5.sp,
@@ -279,7 +239,7 @@ private fun digitsAndStars(){
 }
 @Preview
 @Composable
-private fun humans(){
+private fun Humans(){
     Column (modifier = Modifier
         .fillMaxHeight()
         .padding(start = 24.dp),
@@ -296,7 +256,6 @@ private fun humans(){
                 text = "Auguste Conte",
                 style = TextStyle(
                     fontSize = 16.sp,
-//                    fontFamily = FontFamily(Font(R.font.sk-modernist)),
                     fontWeight = FontWeight(400),
                     color = Color(0xFFFFFFFF),
                     letterSpacing = 0.5.sp,
